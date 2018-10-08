@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:replace="links" />
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">
+    </div>
+
+    <div class="container myPage">
+        <div class="alert alert-success">
+            Registration success!! Please sign in to continue
+        </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+<div th:replace="scripts"></div>
+</body>
+</html>

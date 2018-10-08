@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Spring Security Example</title>
+   <link th:replace="links" />
+</head>
+<body>
+<div>
+    <div th:replace="fragments/header :: header">
+    </div>
+    <div>
+        <div class="alert alert-info" data-th-if="${exist==true}">
+            <p class="text text-center">
+                User with this Email already Exist
+            </p>
+        </div>
+        <form th:action="@{/register}" th:object="${user}" method="post" class="form-baslangıc align-content-lg-center">
+            <div class="form-group align-content-lg-center ">
+                <label th:for="email" class="form-control-label">Email</label>
+                <input type="text" class="form-control" th:field="*{email}" id="email" />
+                <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            </div>
+            <div class="form-group">
+                <label th:for="password" class="form-control-label">Password</label>
+                <input type="text" class="form-control" th:field="*{password}" id="password" />
+                <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+            </div>
+            <div class="form-group">
+                <label th:for="name" class="form-control-label">Name</label>
+                <input type="text" class="form-control" th:field="*{name}"  id="name" />
+                <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            </div>
+            <input type="submit" value="submit" class="btn btn-primary"/>
+        </form>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="scripts"></div>
+</div>
+</body>
+</html>

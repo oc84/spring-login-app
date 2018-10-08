@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="login">
+<head>
+    <title>Log in</title>
+   <link th:replace="links" />
+</head>
+<body>
+
+<div>
+    <div th:replace="fragments/header :: header">
+    </div>
+    <div>
+        <!--suppress ThymeleafVariablesResolveInspection -->
+        <div class="alert alert-danger" th:if="${param.error}">
+          <h2>Invalid Email or Password</h2>
+        </div>
+        <form th:action="@{/login}" method="post"  class=" align-content-lg-center form-baslangıc">
+            <div class="form-group align-content-lg-center ">
+                <label th:for="email" class="form-control-label">Email</label>
+                <input type="email" class="form-control" id="email" name="username" />
+            </div>
+            <div class="form-group">
+                <label th:for="password" class="form-control-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" />
+            </div>
+            <input type="submit" value="submit" class="btn btn-primary"/>
+        </form>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="scripts"></div>
+</div>
+
+</body>
+</html>
